@@ -223,7 +223,7 @@
 			"kind": "user",
 			"methods": {
 				"getPrivateMessageCount()": {
-					"notice": "Get count of private messages sent by caller"
+					"notice": "Get count of private messages sent by the caller"
 				},
 				"getPublicMessageCount()": {
 					"notice": "Get count of public messages"
@@ -261,11 +261,11 @@
 	},
 	"sources": {
 		"contracts/TimeLockedMessege/TimeLockedMessege.sol": {
-			"keccak256": "0x039b6266abd8bcc99b20f23df2aafb02f217436c3c2c2ee821c9596d2955b628",
+			"keccak256": "0xe1370d0a003da272259cabf3de9325795a499c613afcc52209f7234037812c6e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c643544d15e812cb0c99094abdaf3fe126e4e9a3ff4afd5618f71f075c27b53d",
-				"dweb:/ipfs/Qmaiq5zrjXw3BPMRrrChTsunUypvHYgqiPKKFYWrVLdiBW"
+				"bzz-raw://6fd592e3bbdf63a7e8b545e219bcf8925f4e69e3e5867ce2cfdf244f0d295762",
+				"dweb:/ipfs/QmaQKBvE9LgDz7NNppFf7DHCnhRxsmFMVGoJQMJg6gLXEW"
 			]
 		}
 	},

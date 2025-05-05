@@ -73,7 +73,7 @@ contract TimeLockedVault {
         return publicMessages.length;
     }
 
-    /// @notice Get count of private messages sent by caller
+    /// @notice Get count of private messages sent by the caller
     function getPrivateMessageCount() external view returns (uint256) {
         return privateMessages[msg.sender].length;
     }
