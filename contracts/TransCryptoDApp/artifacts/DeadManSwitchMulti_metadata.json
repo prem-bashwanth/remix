@@ -8,9 +8,9 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_beneficiary",
-						"type": "address"
+						"internalType": "address[]",
+						"name": "_beneficiaries",
+						"type": "address[]"
 					},
 					{
 						"internalType": "uint256",
@@ -27,13 +27,13 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "beneficiary",
+						"name": "triggeredBy",
 						"type": "address"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "totalAmount",
 						"type": "uint256"
 					},
 					{
@@ -52,7 +52,7 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "owner",
+						"name": "sender",
 						"type": "address"
 					},
 					{
@@ -66,8 +66,14 @@
 				"type": "event"
 			},
 			{
-				"inputs": [],
-				"name": "beneficiary",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "beneficiaries",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -142,51 +148,39 @@
 			"methods": {
 				"constructor": {
 					"params": {
-						"_beneficiary": "The address designated to receive funds on timeout",
-						"_timeoutPeriod": "Duration in seconds after lastPing before beneficiary can claim"
+						"_beneficiaries": "List of addresses to receive funds if owner is inactive",
+						"_timeoutPeriod": "Time (in seconds) after which funds can be claimed"
 					}
 				}
 			},
-			"title": "Dead Man's Switch (Single Beneficiary Version)",
+			"title": "Dead Man's Switch with Multi-Beneficiary Support and Events",
 			"version": 1
 		},
 		"userdoc": {
 			"events": {
 				"Claimed(address,uint256,uint256)": {
-					"notice": "Emitted when the beneficiary claims the funds"
+					"notice": "Emitted when funds are claimed and contract is destructed"
 				},
 				"Pinged(address,uint256)": {
-					"notice": "Emitted when the owner checks in to reset the timer"
+					"notice": "Emitted when the owner pings to stay alive"
 				}
 			},
 			"kind": "user",
 			"methods": {
-				"beneficiary()": {
-					"notice": "The address designated to receive funds if the owner becomes inactive"
-				},
 				"claimFunds()": {
-					"notice": "Called by anyone, but only transfers funds if timeout has passed"
-				},
-				"lastPing()": {
-					"notice": "Timestamp of the last time the owner was active"
-				},
-				"owner()": {
-					"notice": "The address of the contract's creator (monitored for activity)"
+					"notice": "Transfers ETH equally to all beneficiaries if owner has not pinged in time"
 				},
 				"ping()": {
-					"notice": "Called by the owner to prove activity and reset the timer"
-				},
-				"timeoutPeriod()": {
-					"notice": "Duration (in seconds) after which funds may be claimed if owner does not ping"
+					"notice": "Called by the owner to reset the inactivity timer"
 				}
 			},
-			"notice": "Transfers ETH to a beneficiary if the owner becomes inactive for a defined timeout period.",
+			"notice": "Releases funds to multiple beneficiaries if owner is inactive past a timeout",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TransCryptoDApp/TransCrypto.sol": "DeadManSwitch"
+			"contracts/TransCryptoDApp/TransCryptoGen.sol": "DeadManSwitchMulti"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -200,12 +194,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/TransCryptoDApp/TransCrypto.sol": {
-			"keccak256": "0x417be0f976f866ec4586a75a153429ecd25e302098338029a009fac584399bc3",
+		"contracts/TransCryptoDApp/TransCryptoGen.sol": {
+			"keccak256": "0xca22ca9c53374bd8af185a3183032e2d268ad434036a38cd06d726a2fe04af9a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://41bee6f051e515b5c4b6a3bf98f7b04fe782efcfb9a081ed5a10e003acc6cc6c",
-				"dweb:/ipfs/QmPdX9VD3kCiQrVrYukcCpwUNZE3GtfVeboGHozWXZiPyN"
+				"bzz-raw://c95081d7ef781a2d87814cb644e672a139a031b1cac3a2015f0644acffb5f00a",
+				"dweb:/ipfs/QmPQAKsAB9ZsZ3gHRZDRbyYTdS7aBuVVAfhQFPMGjvNaL4"
 			]
 		}
 	},
