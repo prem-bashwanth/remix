@@ -1,34 +1,20 @@
-REMIX DEFAULT WORKSPACE
+ This project implements two Ethereum-based smart contracts—TransferCrypto and
+ TimeLockedVault—that address key challenges in digital asset inheritance and secure,
+ time-bound communication.
+   1. Transfer Crypto Assets- A decentralized crypto asset inheritance system
+    designed to automatically transfer ownership of digital assets to pre-assigned
+    beneficiaries if the original owner becomes inactive beyond a specified time
+    threshold. This approach removes the need for intermediaries like legal execu
+    tors or custodians, ensuring a trustless and automated form of digital asset
+    management that reflects a user's intentions even in unforeseen situations.
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+    2. Time Locked Message Vault- provides a secure, blockchain-based messag
+    ing system where encrypted messages are stored and only become accessible
+    after a predetermined unlock time. This ensures that sensitive or confidential
+    information remains hidden from all parties until the specified time is reached,
+    enabling use cases like timed disclosures, delayed instructions, or posthumous
+    communication.
 
-This workspace contains 3 directories:
-
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
-
-SCRIPTS
-
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
-
-For the deployment of any other contract, just update the contract name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
-
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
-
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
-
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
-Rashmik
-
-ygfi
-hlo 
-hi
+ -Technology used to develop our smart contracts is Solidity, on Ethereum blockchain.
+ -Developed and tested smart contracts using Solidity in Remix IDE, a browser-based Ethereum development environment.
 
